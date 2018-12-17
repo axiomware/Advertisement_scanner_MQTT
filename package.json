@@ -1,0 +1,16 @@
+{
+  "name": "Advertisement_scanner_MQTT",
+  "version": "0.0.0",
+  "description": "Advertisement_scanner_MQTT",
+  "main": "app.js",
+  "author": "axp",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "mqtt": "^2.18.8",
+    "mqtt-pattern": "^1.2.0"
+  }
+}
