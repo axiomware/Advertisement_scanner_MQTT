@@ -41,13 +41,13 @@ Configure the gateway to send data to MQTT broker, for example 192.168.3.1. Make
 
 
 To collect all advertisement reports:
-```javascript
+```bash
 node appScanAdv.js -h=192.168.3.1
 ```
 To exit, press q
 
 To collect all iBeacon advertisement reports:
-```javascript
+```bash
 node axmScanBeacon.js  -h=192.168.3.1
 ```
 To exit, press q
