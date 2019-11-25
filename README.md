@@ -42,7 +42,7 @@ Configure the gateway to send data to MQTT broker, for example 192.168.3.1. Make
 
 To collect all advertisement reports:
 ```bash
-node appScanAdv.js -h=192.168.3.1
+node axmScanAdv.js -h=192.168.3.1
 ```
 To exit, press q
 
