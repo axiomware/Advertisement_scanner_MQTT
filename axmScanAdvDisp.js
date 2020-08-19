@@ -126,13 +126,13 @@ function processDataReportOut(gwid, robj) {
     if (robj['report'] == 1) {
         var nodes = robj['nodes'];
         if (nodes.length > 0) {
-            var advArrayMap = nodes.map(item => axAdvExtractData(gwid, item));//Extract adv data
-            var adviBeaconDataLine = advArrayMap.map(axIBeaconExtractData); //Extract iBeacon data
-            var adviBeaconDataLine1 = adviBeaconDataLine.filter(item => item.isBeacon); // Seclect only if iBeacon
-			var axReducedData = adviBeaconDataLine1.map(axIBeaconReduceData); // Get reduced set of data - too much to print on console
+            var advArrayMap = nodes.map(item => axAdvExtractDataLimited(gwid, item));//Extract adv data
+            //var adviBeaconDataLine = advArrayMap.map(axIBeaconExtractData); //Extract iBeacon data
+            //var adviBeaconDataLine1 = adviBeaconDataLine.filter(item => item.isBeacon); // Seclect only if iBeacon
+			//var axReducedData = adviBeaconDataLine1.map(axIBeaconReduceData); // Get reduced set of data - too much to print on console
         }
-		//return advArrayMap
-        return axReducedData;
+		return advArrayMap
+        //return axReducedData;
     }
 };
 
@@ -143,17 +143,17 @@ function processDataReportOut(gwid, robj) {
  * @param {Object} advItem - Single advertisement object
  * @returns {Object} advObj - Single parsed advertisement data object
  */
-function axAdvExtractData(gwid, advItem) {
+function axAdvExtractDataLimited(gwid, advItem) {
     advObj = {
         //gw: gwid,
-        //ts: dateTime(advItem.tss + 1e-6 * advItem.tsus),    //Time stamp
+        ts: dateTime(advItem.tss + 1e-6 * advItem.tsus),    //Time stamp
         //did: advItem.did,
         did: addrDisplaySwapEndianness(advItem.did),        //BLE address
         dt: advItem.dtype,                                  // Adress type
         ev: advItem.ev,                                     //adv packet type
         rssi: advItem.rssi,                                 //adv packet RSSI in dBm
-        adv: advItem.adv,
-        rsp: advItem.rsp,
+        //adv: advItem.adv.length,
+        //rsp: advItem.rsp.length,
         name: axParseAdvGetName(advItem.adv, advItem.rsp)  //BLE device name		
     };
     return advObj;

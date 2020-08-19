@@ -26,13 +26,13 @@ var gPort = args.port;
 var gUser = '';
 var gPwd = '';
 
-//var gGWID = 'user/BT202818A26802';          /* Netrunr gateway id */
-var gGWID = 'user/+';          /* Netrunr gateway id */
+//var gGWID = 'netrunr/user/BT202818A26802';          /* Netrunr gateway id */
+var gGWID = 'netrunr/user/+';          /* Netrunr gateway id */
 var gTopicDataIn = gGWID + '/1';       /* Netrunr data in topic */
 var gTopicDataOut = gGWID + '/2';       /* Netrunr data out topic */
 var gTopicDataReportOut = gGWID + '/4'; /* Netrunr report out topic */
 var gTopicDataEventOut = gGWID + '/6';  /* Netrunr status/event out topic */
-var gTopicPattern = 'user/+gwid/+ch' /* For mqtt-pattern library */
+var gTopicPattern = 'netrunr/user/+gwid/+ch' /* For mqtt-pattern library */
 var gVerbose = 0; /* Debug */
 
 /* Console command handling */
